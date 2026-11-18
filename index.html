@@ -256,7 +256,7 @@
         }
 
         /* Scoped Hero Journey Animation Card */
-        .hero-anim-card { width:100%; max-width:720px; background:#0b1224; border:1px solid #1e2a4a; border-radius:22px; overflow:hidden; color:#e8ecf8; box-shadow:0 20px 60px rgba(40,50,140,.35); cursor:pointer; }
+        .hero-anim-card { width:100%; max-width:720px; background:#0b1224; border:1px solid #1e2a4a; border-radius:22px; overflow:hidden; color:#e8ecf8; box-shadow:0 20px 60px rgba(40,50,140,.35); cursor:pointer; position:relative; }
         .hero-anim-card .bar { display:flex; align-items:center; gap:8px; padding:12px 16px; background:#05081a; border-bottom:1px solid #1a2342; }
         .hero-anim-card .dot { width:11px; height:11px; border-radius:50%; }
         .hero-anim-card .file { margin-left:8px; font:12px ui-monospace,Menlo,Consolas,monospace; color:#8b97bd; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -264,7 +264,8 @@
         .hero-anim-card .live i { width:8px; height:8px; border-radius:50%; background:#34d399; animation:hero-pulse 1.4s infinite; }
         @keyframes hero-pulse { 50%{opacity:.25} }
         .hero-anim-card .stage { position:relative; height:310px; background:radial-gradient(ellipse at 30% 0%,#1b1f4d 0%,#0b1224 70%); }
-        .hero-anim-card .cap { position:absolute; top:12px; left:14px; z-index:3; font-size:11px; font-weight:700; padding:5px 11px; border-radius:99px; background:#4f46e5; color:#fff; box-shadow:0 4px 14px rgba(79,70,229,.5); }
+        .hero-anim-card .cap { position:absolute; top:12px; left:14px; z-index:3; font-size:11px; font-weight:700; padding:5px 11px; border-radius:99px; background:#4f46e5; color:#fff; box-shadow:0 4px 14px rgba(79,70,229,.5); opacity:0; transition:opacity .35s; }
+        .hero-anim-card .cap.show { opacity:1; }
         .hero-anim-card .sc { position:absolute; inset:0; padding:48px 18px 14px; opacity:0; transform:translateY(8px) scale(.985); transition:opacity .45s,transform .45s; pointer-events:none; }
         .hero-anim-card .sc.on { opacity:1; transform:none; pointer-events:auto; }
         .hero-anim-card .mono { font:13px/1.75 ui-monospace,Menlo,Consolas,monospace; }
@@ -291,7 +292,115 @@
         .hero-anim-card .prog i { display:block; height:100%; width:0; background:linear-gradient(90deg,#6366f1,#34d399); }
         .hero-anim-card .foot { display:flex; justify-content:space-between; gap:10px; padding:13px 16px; background:#05081a; font-size:12px; color:#b6bfdc; }
         .hero-anim-card .foot a { color:#818cf8; font-weight:700; text-decoration:none; }
-        @media (max-width:480px){ .hero-anim-card .stage { height:290px; } .hero-anim-card .mono { font-size:11.5px; } .hero-anim-card .big { font-size:19px; } }
+
+        /* Hero Intro Banner Overlay (matches user design) */
+        .hero-intro-overlay {
+            position: absolute;
+            inset: 12px;
+            z-index: 10;
+            background: radial-gradient(circle at 50% 50%, rgba(30, 27, 75, 0.96) 0%, rgba(10, 15, 30, 0.98) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px 20px;
+            box-shadow: inset 0 0 50px rgba(99, 102, 241, 0.15), 0 10px 30px rgba(0,0,0,0.5);
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+            overflow: hidden;
+            user-select: none;
+        }
+        .hero-intro-overlay.hidden-overlay {
+            opacity: 0;
+            transform: scale(0.97);
+            pointer-events: none;
+            visibility: hidden;
+        }
+        .hero-intro-overlay .intro-glow {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.32) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: intro-pulse 3s infinite ease-in-out;
+        }
+        @keyframes intro-pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; }
+        }
+        .hero-intro-overlay .intro-tag {
+            position: absolute;
+            font-family: ui-monospace, Menlo, Consolas, monospace;
+            font-size: 11px;
+            pointer-events: none;
+            letter-spacing: 0.02em;
+        }
+        .hero-intro-overlay .intro-tag.t-left {
+            top: 16px;
+            left: 18px;
+            color: rgba(165, 180, 252, 0.55);
+        }
+        .hero-intro-overlay .intro-tag.m-left {
+            top: 52%;
+            left: 16px;
+            transform: translateY(-50%);
+            color: rgba(52, 211, 153, 0.5);
+        }
+        .hero-intro-overlay .intro-tag.b-right {
+            bottom: 16px;
+            right: 18px;
+            color: rgba(192, 132, 252, 0.55);
+        }
+        .hero-intro-overlay .intro-btn {
+            position: relative;
+            z-index: 2;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.65), 0 4px 18px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 14px;
+        }
+        .hero-anim-card:hover .hero-intro-overlay .intro-btn,
+        .hero-intro-overlay .intro-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 45px rgba(99, 102, 241, 0.85), 0 6px 24px rgba(0, 0, 0, 0.5);
+        }
+        .hero-intro-overlay .intro-btn svg {
+            width: 28px;
+            height: 28px;
+            margin-left: 3px;
+        }
+        .hero-intro-overlay .intro-title {
+            position: relative;
+            z-index: 2;
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+        .hero-intro-overlay .intro-sub {
+            position: relative;
+            z-index: 2;
+            font-size: 12px;
+            color: #94a3b8;
+            max-width: 260px;
+        }
+        @media (max-width:480px){ .hero-anim-card .stage { height:290px; } .hero-anim-card .mono { font-size:11.5px; } .hero-anim-card .big { font-size:19px; } .hero-intro-overlay .intro-sub { max-width: 210px; } }
 
         /* Looping "chaos" animation standing in for a GIF */
         @keyframes drift-a {
@@ -394,15 +503,29 @@
                 <!-- Ambient Tech Glow Behind Card -->
                 <div class="absolute -inset-3 bg-gradient-to-r from-indigo-500/25 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl -z-10"></div>
 
-                <div class="hero-anim-card" id="card" title="Click to pause / play">
+                <div class="hero-anim-card" id="card" title="Click to watch / toggle playback">
                     <div class="bar">
                         <span class="dot" style="background:#ff5f57"></span>
                         <span class="dot" style="background:#febc2e"></span>
                         <span class="dot" style="background:#28c840"></span>
-                        <span class="file" id="file">analysis.py</span>
+                        <span class="file" id="file">live-mentorship-session.py</span>
                         <span class="live"><i></i>LIVE DEMO</span>
                     </div>
                     <div class="stage">
+                        <!-- Stopped State Intro Overlay Banner -->
+                        <div class="hero-intro-overlay" id="intro-overlay">
+                            <div class="intro-glow"></div>
+                            <span class="intro-tag t-left">import torch</span>
+                            <span class="intro-tag m-left">accuracy: 98.4%</span>
+                            <span class="intro-tag b-right">LangChain.Agent()</span>
+                            
+                            <div class="intro-btn" id="intro-play-btn" role="button" aria-label="Play Program Intro">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <p class="intro-title">Watch Program Intro</p>
+                            <p class="intro-sub">Interactive overview of the learning journey</p>
+                        </div>
+
                         <div class="cap" id="cap">Step 1 · Python</div>
 
                         <div class="sc" id="code"><div class="mono" id="codeout"></div></div>
@@ -457,7 +580,7 @@
                         </div>
                     </div>
                     <div class="prog"><i id="pg"></i></div>
-                    <div class="foot"><span>★ 100% Practical • Live mentorship</span><a href="#contact">Book Free Session →</a></div>
+                    <div class="foot"><span>★ 100% Practical • Zero Pre-recorded Fluff</span><a href="#contact">Book Free Session →</a></div>
                 </div>
             </div>
         </div>
@@ -1564,29 +1687,57 @@
             /* scene 6: CTA fades via CSS */
             var fn = {code:code, ts:ts, ml:ml, fraud:fraud, cv:cv, cta:function(){}};
 
-            var clock = 0, last = performance.now(), paused = false, cur = -1;
+            var clock = 0, last = performance.now(), started = false, paused = true, cur = -1;
             var cardEl = $("card");
-            if (cardEl) {
-                cardEl.addEventListener("click", function(){ paused = !paused; });
+            var introOverlay = $("intro-overlay");
+            var capEl = $("cap");
+
+            function startPlayback(){
+                if (!started) {
+                    started = true;
+                    paused = false;
+                    last = performance.now();
+                    if (introOverlay) introOverlay.classList.add("hidden-overlay");
+                    if (capEl) capEl.classList.add("show");
+                } else {
+                    paused = !paused;
+                }
             }
+
+            if (introOverlay) {
+                introOverlay.addEventListener("click", function(e){
+                    e.stopPropagation();
+                    startPlayback();
+                });
+            }
+
+            if (cardEl) {
+                cardEl.addEventListener("click", function(e){
+                    if (e.target.tagName === "A" || e.target.closest("a")) return;
+                    startPlayback();
+                });
+            }
+
             function tick(now){
                 var dt = now - last; last = now;
-                if (!paused) clock += dt;
-                var t = clock % D;
-                var pgEl = $("pg");
-                if (pgEl) pgEl.style.width = (t / D * 100) + "%";
-                for (var i = 0; i < S.length; i++){
-                    var sc = S[i];
-                    if (t >= sc.s && t < sc.e){
-                        if (cur !== i){
-                            if (cur >= 0 && $(S[cur].id)) $(S[cur].id).classList.remove("on");
-                            if ($(sc.id)) $(sc.id).classList.add("on");
-                            var fEl = $("file"); if (fEl) fEl.textContent = sc.f;
-                            var cEl = $("cap"); if (cEl) cEl.textContent = sc.c;
-                            cur = i;
+                if (started && !paused) {
+                    clock += dt;
+                    var t = clock % D;
+                    var pgEl = $("pg");
+                    if (pgEl) pgEl.style.width = (t / D * 100) + "%";
+                    for (var i = 0; i < S.length; i++){
+                        var sc = S[i];
+                        if (t >= sc.s && t < sc.e){
+                            if (cur !== i){
+                                if (cur >= 0 && $(S[cur].id)) $(S[cur].id).classList.remove("on");
+                                if ($(sc.id)) $(sc.id).classList.add("on");
+                                var fEl = $("file"); if (fEl) fEl.textContent = sc.f;
+                                if (capEl) capEl.textContent = sc.c;
+                                cur = i;
+                            }
+                            if (fn[sc.id]) fn[sc.id]((t - sc.s) / (sc.e - sc.s));
+                            break;
                         }
-                        if (fn[sc.id]) fn[sc.id]((t - sc.s) / (sc.e - sc.s));
-                        break;
                     }
                 }
                 requestAnimationFrame(tick);
