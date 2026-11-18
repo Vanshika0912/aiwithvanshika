@@ -255,12 +255,43 @@
             animation: gentle-float 3.5s ease-in-out infinite;
         }
 
-        /* Hero terminal tab styles */
-        .hero-tab-btn.active {
-            background-color: #4F46E5 !important;
-            color: #FFFFFF !important;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
-        }
+        /* Scoped Hero Journey Animation Card */
+        .hero-anim-card { width:100%; max-width:720px; background:#0b1224; border:1px solid #1e2a4a; border-radius:22px; overflow:hidden; color:#e8ecf8; box-shadow:0 20px 60px rgba(40,50,140,.35); cursor:pointer; }
+        .hero-anim-card .bar { display:flex; align-items:center; gap:8px; padding:12px 16px; background:#05081a; border-bottom:1px solid #1a2342; }
+        .hero-anim-card .dot { width:11px; height:11px; border-radius:50%; }
+        .hero-anim-card .file { margin-left:8px; font:12px ui-monospace,Menlo,Consolas,monospace; color:#8b97bd; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .hero-anim-card .live { font-size:11px; font-weight:700; letter-spacing:.06em; color:#34d399; display:flex; align-items:center; gap:6px; }
+        .hero-anim-card .live i { width:8px; height:8px; border-radius:50%; background:#34d399; animation:hero-pulse 1.4s infinite; }
+        @keyframes hero-pulse { 50%{opacity:.25} }
+        .hero-anim-card .stage { position:relative; height:310px; background:radial-gradient(ellipse at 30% 0%,#1b1f4d 0%,#0b1224 70%); }
+        .hero-anim-card .cap { position:absolute; top:12px; left:14px; z-index:3; font-size:11px; font-weight:700; padding:5px 11px; border-radius:99px; background:#4f46e5; color:#fff; box-shadow:0 4px 14px rgba(79,70,229,.5); }
+        .hero-anim-card .sc { position:absolute; inset:0; padding:48px 18px 14px; opacity:0; transform:translateY(8px) scale(.985); transition:opacity .45s,transform .45s; pointer-events:none; }
+        .hero-anim-card .sc.on { opacity:1; transform:none; pointer-events:auto; }
+        .hero-anim-card .mono { font:13px/1.75 ui-monospace,Menlo,Consolas,monospace; }
+        .hero-anim-card .k { color:#c084fc; }
+        .hero-anim-card .s { color:#fbbf24; }
+        .hero-anim-card .f { color:#60a5fa; }
+        .hero-anim-card .o { color:#34d399; }
+        .hero-anim-card .c { color:#64748b; }
+        .hero-anim-card .cur { display:inline-block; width:7px; height:15px; background:#a5b4fc; vertical-align:-2px; animation:hero-pulse .8s infinite; }
+        .hero-anim-card svg { width:100%; height:100%; display:block; }
+        .hero-anim-card .sub { font-size:12px; color:#8b97bd; }
+        .hero-anim-card .big { font-size:22px; font-weight:800; line-height:1.25; }
+        .hero-anim-card .center { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:10px; }
+        .hero-anim-card .anim-row { display:flex; justify-content:space-between; align-items:center; padding:8px 12px; margin-bottom:6px; border-radius:10px; background:#121a33; border:1px solid #1e2a4a; font-size:12px; opacity:0; transform:translateX(-14px); transition:all .4s; }
+        .hero-anim-card .anim-row.show { opacity:1; transform:none; }
+        .hero-anim-card .anim-row.bad { background:#3b0d18; border-color:#f43f5e; color:#fecdd3; box-shadow:0 0 22px rgba(244,63,94,.45); }
+        .hero-anim-card .ok { color:#34d399; }
+        .hero-anim-card .alert { position:absolute; left:18px; right:18px; bottom:14px; padding:10px 14px; border-radius:12px; background:#f43f5e; color:#fff; font-weight:700; font-size:13px; opacity:0; transform:translateY(10px); transition:all .4s; }
+        .hero-anim-card .alert.show { opacity:1; transform:none; }
+        .hero-anim-card .pill { padding:10px 18px; border-radius:99px; background:#4f46e5; font-weight:700; font-size:14px; box-shadow:0 6px 24px rgba(79,70,229,.6); color:#fff; text-decoration:none; display:inline-block; }
+        .hero-anim-card .steps { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; }
+        .hero-anim-card .steps b { font-size:11px; font-weight:600; padding:4px 9px; border-radius:99px; background:#1a2342; color:#a5b4fc; }
+        .hero-anim-card .prog { height:3px; background:#1a2342; }
+        .hero-anim-card .prog i { display:block; height:100%; width:0; background:linear-gradient(90deg,#6366f1,#34d399); }
+        .hero-anim-card .foot { display:flex; justify-content:space-between; gap:10px; padding:13px 16px; background:#05081a; font-size:12px; color:#b6bfdc; }
+        .hero-anim-card .foot a { color:#818cf8; font-weight:700; text-decoration:none; }
+        @media (max-width:480px){ .hero-anim-card .stage { height:290px; } .hero-anim-card .mono { font-size:11.5px; } .hero-anim-card .big { font-size:19px; } }
 
         /* Looping "chaos" animation standing in for a GIF */
         @keyframes drift-a {
@@ -358,176 +389,79 @@
                 </div>
             </div>
 
-            <!-- Right Column: Interactive Hero Studio / AI Demo / Video & GIF Frame -->
-            <div class="md:w-1/2 relative w-full max-w-xl mx-auto">
+            <!-- Right Column: Interactive Animated Learning Journey Showcase -->
+            <div class="md:w-1/2 relative w-full max-w-xl mx-auto flex justify-center">
                 <!-- Ambient Tech Glow Behind Card -->
                 <div class="absolute -inset-3 bg-gradient-to-r from-indigo-500/25 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl -z-10"></div>
 
-                <div class="bg-slate-900 rounded-3xl shadow-2xl border border-slate-800 overflow-hidden text-slate-200">
-                    <!-- Window Header Bar -->
-                    <div class="bg-slate-950 px-5 py-3.5 border-b border-slate-800/80 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
-                            <span class="text-xs font-mono text-slate-400 ml-2 hidden sm:inline">live-mentorship-session.py</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                            <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">Live Demo</span>
-                        </div>
+                <div class="hero-anim-card" id="card" title="Click to pause / play">
+                    <div class="bar">
+                        <span class="dot" style="background:#ff5f57"></span>
+                        <span class="dot" style="background:#febc2e"></span>
+                        <span class="dot" style="background:#28c840"></span>
+                        <span class="file" id="file">analysis.py</span>
+                        <span class="live"><i></i>LIVE DEMO</span>
                     </div>
+                    <div class="stage">
+                        <div class="cap" id="cap">Step 1 · Python</div>
 
-                    <!-- Interactive Mode Tabs -->
-                    <div class="bg-slate-900/90 px-4 pt-3 pb-2 border-b border-slate-800 flex gap-2 overflow-x-auto text-xs font-medium">
-                        <button id="tab-btn-agent" class="hero-tab-btn active px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold transition-all">
-                            🤖 Live AI Agent
-                        </button>
-                        <button id="tab-btn-code" class="hero-tab-btn px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                            🐍 Python & ML
-                        </button>
-                        <button id="tab-btn-video" class="hero-tab-btn px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-1.5">
-                            <span>🎬 Video / GIF Tour</span>
-                        </button>
-                    </div>
+                        <div class="sc" id="code"><div class="mono" id="codeout"></div></div>
 
-                    <!-- Tab Content 1: AI Agent Live Simulator -->
-                    <div id="tab-content-agent" class="hero-tab-panel p-5 min-h-[300px] flex flex-col justify-between">
-                        <div class="space-y-3 font-sans text-xs">
-                            <!-- Mentorship Session Info -->
-                            <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[11px] text-slate-400">
-                                <span>Mentor: <strong class="text-indigo-400">Vanshika Garg</strong></span>
-                                <span class="text-emerald-400 font-mono">● 1-on-1 Interactive</span>
-                            </div>
+                        <div class="sc" id="ts">
+                            <div class="sub">Monthly sales · trend &amp; forecast</div>
+                            <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet">
+                                <g stroke="#1e2a4a" stroke-width="1"><line x1="10" y1="40" x2="310" y2="40"/><line x1="10" y1="90" x2="310" y2="90"/><line x1="10" y1="140" x2="310" y2="140"/></g>
+                                <polygon id="band" fill="#34d399" opacity="0"/>
+                                <path id="act" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                                <path id="ma" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="5 4" opacity="0"/>
+                                <path id="fc" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="5 4" opacity="0"/>
+                                <text id="fclab" x="232" y="26" fill="#34d399" font-size="11" font-weight="700" opacity="0">Forecast ↗ next 12 days</text>
+                                <text x="12" y="164" fill="#fbbf24" font-size="10" opacity=".9">— moving average</text>
+                            </svg>
+                        </div>
 
-                            <!-- Dialogue Simulation -->
-                            <div class="bg-slate-950/70 rounded-xl p-3.5 border border-slate-800/80">
-                                <div class="text-[11px] font-bold text-indigo-400 mb-1 flex items-center gap-1.5">
-                                    <span>👤</span> Student Query:
-                                </div>
-                                <p id="demo-student-query" class="text-slate-300 text-xs">
-                                    "How do I build an AI Agent with persistent memory using LangChain?"
-                                </p>
-                            </div>
-
-                            <div class="bg-indigo-950/40 rounded-xl p-3.5 border border-indigo-900/50">
-                                <div class="text-[11px] font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
-                                    <span>👩‍💻</span> Vanshika (Live Mentor):
-                                </div>
-                                <p id="demo-mentor-response" class="text-slate-300 text-xs leading-relaxed">
-                                    "We structure it in 3 clean layers: 1) Vector Store retriever for custom knowledge, 2) ConversationBufferMemory to retain context, and 3) Tool-calling agent execution loop."
-                                </p>
-                                <div class="mt-2.5 flex items-center gap-2 font-mono text-[11px] text-indigo-300 bg-indigo-950/80 px-2.5 py-1.5 rounded border border-indigo-800/50 overflow-x-auto">
-                                    <span class="text-emerald-400">✓</span>
-                                    <span id="demo-code-pill">agent = create_openai_tools_agent(llm, tools, prompt)</span>
+                        <div class="sc" id="ml">
+                            <div class="center" style="height:100%;flex-direction:row;gap:28px;flex-wrap:wrap">
+                                <svg viewBox="0 0 120 120" style="width:130px;height:130px;flex:none"><circle cx="60" cy="60" r="48" fill="none" stroke="#1e2a4a" stroke-width="10"/><circle id="ring" cx="60" cy="60" r="48" fill="none" stroke="#34d399" stroke-width="10" stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="301.6" transform="rotate(-90 60 60)"/><text id="acc" x="60" y="66" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">0%</text></svg>
+                                <div style="min-width:150px"><div class="big" style="font-size:17px;margin-bottom:10px">Model accuracy</div>
+                                    <div class="sub">Precision</div><div style="height:6px;background:#1a2342;border-radius:9px;margin:4px 0 9px"><i id="b1" style="display:block;height:100%;width:0;background:#6366f1;border-radius:9px"></i></div>
+                                    <div class="sub">Recall</div><div style="height:6px;background:#1a2342;border-radius:9px;margin:4px 0 9px"><i id="b2" style="display:block;height:100%;width:0;background:#6366f1;border-radius:9px"></i></div>
+                                    <div class="sub">F1 score</div><div style="height:6px;background:#1a2342;border-radius:9px;margin:4px 0"><i id="b3" style="display:block;height:100%;width:0;background:#6366f1;border-radius:9px"></i></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Interactive Prompt Selector Chips -->
-                        <div class="mt-4 pt-3 border-t border-slate-800">
-                            <p class="text-[11px] font-semibold text-slate-400 mb-2">Click to test different mentorship topics:</p>
-                            <div class="flex flex-wrap gap-1.5">
-                                <button class="agent-chip text-[11px] bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-300 px-2.5 py-1 rounded-md transition-colors" data-topic="rag">
-                                    ⚡ RAG Pipeline
-                                </button>
-                                <button class="agent-chip text-[11px] bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-300 px-2.5 py-1 rounded-md transition-colors" data-topic="ml">
-                                    📊 Machine Learning
-                                </button>
-                                <button class="agent-chip text-[11px] bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-300 px-2.5 py-1 rounded-md transition-colors" data-topic="scraper">
-                                    🕷️ Python Automation
-                                </button>
-                            </div>
+                        <div class="sc" id="fraud">
+                            <div class="sub" style="margin-bottom:8px">Live banking transactions · AI watching</div>
+                            <div id="anim-rows"></div>
+                            <div class="alert" id="alert">⚠ Anomaly detected — fraud blocked in 0.2s</div>
+                        </div>
+
+                        <div class="sc" id="cv">
+                            <svg viewBox="0 0 320 190" preserveAspectRatio="xMidYMid meet">
+                                <rect x="0" y="0" width="320" height="190" rx="10" fill="#10183a"/>
+                                <rect x="0" y="120" width="320" height="70" fill="#1c2340"/>
+                                <line x1="0" y1="155" x2="320" y2="155" stroke="#3b4770" stroke-dasharray="14 10"/>
+                                <g><rect x="190" y="104" width="86" height="32" rx="9" fill="#6366f1"/><rect x="208" y="86" width="50" height="24" rx="8" fill="#818cf8"/><circle cx="212" cy="138" r="9" fill="#0b1224" stroke="#94a3b8" stroke-width="3"/><circle cx="260" cy="138" r="9" fill="#0b1224" stroke="#94a3b8" stroke-width="3"/></g>
+                                <g><circle cx="86" cy="86" r="9" fill="#fbbf24"/><rect x="77" y="97" width="18" height="30" rx="7" fill="#f472b6"/><rect x="77" y="126" width="7" height="18" fill="#94a3b8"/><rect x="88" y="126" width="7" height="18" fill="#94a3b8"/></g>
+                                <rect id="scan" x="0" y="0" width="3" height="190" fill="#34d399" opacity="0"/>
+                                <g id="b_car" opacity="0"><rect x="184" y="80" width="98" height="68" fill="none" stroke="#34d399" stroke-width="2.5" rx="4"/><rect x="184" y="64" width="76" height="16" fill="#34d399"/><text x="189" y="76" font-size="11" font-weight="700" fill="#052e1b">car 96%</text></g>
+                                <g id="b_per" opacity="0"><rect x="70" y="73" width="34" height="76" fill="none" stroke="#fbbf24" stroke-width="2.5" rx="4"/><rect x="70" y="57" width="68" height="16" fill="#fbbf24"/><text x="75" y="69" font-size="11" font-weight="700" fill="#3b2a00">person 91%</text></g>
+                            </svg>
+                        </div>
+
+                        <div class="sc center" id="cta">
+                            <div class="big">You can learn all this —<br>step by step, with me.</div>
+                            <div class="steps"><b>Python</b><b>Data</b><b>ML</b><b>Deep Learning</b><b>GenAI</b><b>Agents</b></div>
+                            <a href="#contact" class="pill text-white no-underline inline-block">📞 Book Free Session · +91 84481 68576</a>
                         </div>
                     </div>
-
-                    <!-- Tab Content 2: Python & ML Code Runner -->
-                    <div id="tab-content-code" class="hero-tab-panel hidden p-5 min-h-[300px] flex flex-col justify-between font-mono text-xs">
-                        <div class="bg-slate-950/90 rounded-xl p-4 border border-slate-800 space-y-1.5 overflow-x-auto text-[11.5px] leading-relaxed">
-                            <p class="text-slate-500"># 1-on-1 Mentorship Code Execution</p>
-                            <p><span class="text-purple-400">from</span> <span class="text-indigo-300">langchain_openai</span> <span class="text-purple-400">import</span> ChatOpenAI</p>
-                            <p><span class="text-purple-400">from</span> <span class="text-indigo-300">ai_mentorship</span> <span class="text-purple-400">import</span> StudentProject</p>
-                            <p class="text-slate-500 mt-2"># Build, test & deploy real systems</p>
-                            <p>llm = ChatOpenAI(model=<span class="text-emerald-300">"gpt-4o"</span>, temperature=<span class="text-amber-300">0</span>)</p>
-                            <p>project = StudentProject(mentor=<span class="text-emerald-300">"Vanshika"</span>, deployed=<span class="text-amber-300">True</span>)</p>
-                            <p class="text-indigo-300">project.deploy(platform=<span class="text-emerald-300">"Streamlit Cloud"</span>)</p>
-                        </div>
-
-                        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-                            <button id="run-code-btn" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-colors">
-                                <span>▶ Run Code</span>
-                            </button>
-                            <span id="run-code-status" class="text-[11px] text-slate-400">Click to execute live</span>
-                        </div>
-                        <div id="run-code-output" class="hidden mt-2 p-2.5 bg-slate-950 rounded-lg border border-emerald-900/40 text-[11px] text-emerald-400 font-mono">
-                            ✓ [Success]: Deployment Live at https://aiwithvanshika.demo/agent (Status: 200 OK)
-                        </div>
-                    </div>
-
-                    <!-- Tab Content 3: Video & GIF Showcase -->
-                    <div id="tab-content-video" class="hero-tab-panel hidden p-5 min-h-[300px] flex flex-col items-center justify-center relative">
-                        <!-- Animated Visual or GIF Container -->
-                        <div class="w-full h-52 bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 rounded-2xl border border-indigo-900/40 relative overflow-hidden flex flex-col items-center justify-center p-6 text-center group cursor-pointer video-card-trigger">
-                            <!-- Animated backdrop pulse -->
-                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.25),transparent_70%)] animate-pulse"></div>
-                            
-                            <!-- Floating code particles in background -->
-                            <div class="absolute top-3 left-4 text-[10px] font-mono text-indigo-400/40">import torch</div>
-                            <div class="absolute bottom-3 right-4 text-[10px] font-mono text-purple-400/40">LangChain.Agent()</div>
-                            <div class="absolute top-1/2 left-3 -translate-y-1/2 text-[10px] font-mono text-emerald-400/30">accuracy: 98.4%</div>
-
-                            <!-- Play Button -->
-                            <button class="relative z-10 w-16 h-16 rounded-full bg-indigo-600/90 group-hover:bg-indigo-500 text-white shadow-2xl shadow-indigo-500/50 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 mb-3">
-                                <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
-                            <p class="relative z-10 text-xs font-semibold text-white">Watch Program Intro</p>
-                            <p class="relative z-10 text-[11px] text-slate-400 mt-1">Interactive overview of the learning journey</p>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Footer Bar of Card -->
-                    <div class="bg-slate-950 px-5 py-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-                        <span class="flex items-center gap-1.5">
-                            <span class="text-amber-400">★</span> 100% Practical • Zero Pre-recorded Fluff
-                        </span>
-                        <a href="#contact" class="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1 transition-colors">
-                            <span>Book Free Session</span>
-                            <span>→</span>
-                        </a>
-                    </div>
+                    <div class="prog"><i id="pg"></i></div>
+                    <div class="foot"><span>★ 100% Practical • Live mentorship</span><a href="#contact">Book Free Session →</a></div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Video Modal with High-Conversion Fallback -->
-    <div id="video-modal" class="fixed inset-0 bg-black/80 z-[100] flex justify-center items-center hidden opacity-0 transition-opacity duration-300 ease-in-out p-4">
-        <div class="relative w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl p-6 md:p-8 text-center">
-            <button class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl z-20 close-modal-button">&times;</button>
-            
-            <div id="video-iframe-container" class="hidden aspect-video w-full mb-4">
-                <iframe id="youtube-video" class="w-full h-full rounded-2xl" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div id="video-fallback-container" class="py-4">
-                <div class="w-16 h-16 rounded-full bg-indigo-500/20 text-indigo-400 mx-auto flex items-center justify-center mb-4">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Want to Speak Directly With Vanshika?</h3>
-                <p class="text-slate-300 text-sm max-w-md mx-auto mb-6">
-                    Because this is a personalized 1-on-1 mentorship program, we prioritize real conversations over generic marketing videos. Have a 15-minute discussion to map out your personalized roadmap.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                    <a href="https://wa.me/918448168576?text=Hi%20Vanshika%21%20I%20watched%20your%20website%20preview%20and%20would%20like%20to%20book%20a%20free%201-on-1%20strategy%20session." target="_blank" rel="noopener" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full text-sm inline-flex items-center justify-center gap-2 transition-all">
-                        <span>💬 Chat on WhatsApp (+91 84481 68576)</span>
-                    </a>
-                    <button class="close-modal-button bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold py-3 px-6 rounded-full text-sm transition-all">
-                        Close Preview
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <section class="py-20 md:py-24 bg-red-50 relative overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 md:px-12 text-center">
@@ -1010,7 +944,7 @@
                                     </div>
                                     <span class="text-[10px] uppercase font-semibold tracking-wider text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">Accepting Students</span>
                                 </div>
-                                <p class="text-[11px] text-slate-300 font-medium">Software Engineer • AI/ML & Python Mentor</p>
+                                <p class="text-[11px] text-slate-300 font-medium">Software Engineer (5+ Yrs) • AI/ML & Python Mentor</p>
                             </div>
                         </div>
                     </div>
@@ -1027,7 +961,7 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="bg-white rounded-xl p-6 border border-indigo-100 shadow-sm text-center">
-                            <p class="text-3xl font-bold text-indigo-600 mb-1">4+</p>
+                            <p class="text-3xl font-bold text-indigo-600 mb-1">5+</p>
                             <p class="text-slate-600 font-medium">Years Software Engineering</p>
                         </div>
                         <div class="bg-white rounded-xl p-6 border border-indigo-100 shadow-sm text-center">
@@ -1375,8 +1309,32 @@
                 </div>
             </div>
 
+            <!-- Location & Google Map Card -->
+            <div class="reveal mt-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900/80">
+                <div class="p-4 px-6 bg-slate-950/90 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                    <div class="flex items-center gap-2.5 text-slate-200">
+                        <span class="text-rose-400 text-base">📍</span>
+                        <span><strong class="text-white font-semibold">Location / Base:</strong> Vapi, Gujarat, India</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-emerald-400">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Mentoring Learners Pan-India & Globally via Live 1-on-1 Sessions</span>
+                    </div>
+                </div>
+                <div class="h-64 sm:h-80 w-full">
+                    <iframe
+                        src="https://www.google.com/maps?q=Vapi,+Gujarat&output=embed"
+                        class="w-full h-full"
+                        style="border:0;"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="AI With Vanshika location - Vapi, Gujarat">
+                    </iframe>
+                </div>
+            </div>
+
             <!-- Credibility & Global Delivery Bar -->
-            <div class="mt-10 pt-6 border-t border-slate-800 text-center text-xs text-slate-400">
+            <div class="mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-400">
                 <span>📍 Based in Gujarat, India</span>
                 <span class="mx-2">•</span>
                 <span>Live 1-on-1 Sessions via Google Meet & Zoom across India & Worldwide</span>
@@ -1480,153 +1438,161 @@
             link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
         });
 
-        // Hero Studio Tab Switching Logic
-        const tabBtns = {
-            agent: document.getElementById("tab-btn-agent"),
-            code: document.getElementById("tab-btn-code"),
-            video: document.getElementById("tab-btn-video")
-        };
-        const tabPanels = {
-            agent: document.getElementById("tab-content-agent"),
-            code: document.getElementById("tab-content-code"),
-            video: document.getElementById("tab-content-video")
-        };
+        // Hero Animated Journey Engine
+        (function(){
+            var D = 25000;
+            var S = [
+                {id:"code", s:0, e:5000, f:"analysis.py", c:"Step 1 · Python"},
+                {id:"ts", s:5000, e:10000, f:"forecast.ipynb", c:"Step 2 · Data Analysis"},
+                {id:"ml", s:10000, e:14000, f:"train_model.py", c:"Step 3 · Machine Learning"},
+                {id:"fraud", s:14000, e:19000, f:"fraud_detect.py", c:"Step 4 · Real-world AI"},
+                {id:"cv", s:19000, e:22500, f:"detect_objects.py", c:"Step 5 · Computer Vision"},
+                {id:"cta", s:22500, e:25000, f:"your_journey.py", c:"Your turn"}
+            ];
+            var $ = function(i){ return document.getElementById(i); };
+            var cl = Math.min, ease = function(x){ return 1 - Math.pow(1 - cl(1, Math.max(0, x)), 3); };
 
-        function switchHeroTab(activeTab) {
-            Object.keys(tabBtns).forEach(key => {
-                if (tabBtns[key]) {
-                    if (key === activeTab) {
-                        tabBtns[key].classList.add("active", "bg-indigo-600", "text-white");
-                        tabBtns[key].classList.remove("bg-slate-800", "text-slate-300");
-                    } else {
-                        tabBtns[key].classList.remove("active", "bg-indigo-600", "text-white");
-                        tabBtns[key].classList.add("bg-slate-800", "text-slate-300");
-                    }
-                }
-                if (tabPanels[key]) {
-                    if (key === activeTab) {
-                        tabPanels[key].classList.remove("hidden");
-                    } else {
-                        tabPanels[key].classList.add("hidden");
-                    }
-                }
-            });
-        }
-
-        if (tabBtns.agent) tabBtns.agent.addEventListener("click", () => switchHeroTab("agent"));
-        if (tabBtns.code) tabBtns.code.addEventListener("click", () => switchHeroTab("code"));
-        if (tabBtns.video) tabBtns.video.addEventListener("click", () => switchHeroTab("video"));
-
-        // Interactive Agent Prompt Chips Simulation
-        const agentChips = document.querySelectorAll(".agent-chip");
-        const studentQueryEl = document.getElementById("demo-student-query");
-        const mentorResponseEl = document.getElementById("demo-mentor-response");
-        const codePillEl = document.getElementById("demo-code-pill");
-
-        const demoTopics = {
-            rag: {
-                query: '"How do I build an AI Agent with persistent memory using LangChain?"',
-                response: '"We structure it in 3 clean layers: 1) Vector Store retriever for custom knowledge, 2) ConversationBufferMemory to retain context, and 3) Tool-calling agent execution loop."',
-                code: "agent = create_openai_tools_agent(llm, tools, prompt)"
-            },
-            ml: {
-                query: '"Can a complete beginner build and train a Customer Churn prediction model?"',
-                response: '"Yes! We start with clean Pandas exploratory analysis, train Random Forest and XGBoost classifiers in Scikit-Learn, evaluate ROC-AUC curves, and deploy it as a live API."',
-                code: "clf = RandomForestClassifier(n_estimators=100).fit(X_train, y_train)"
-            },
-            scraper: {
-                query: '"How do I build an automated AI scraper to monitor competitor prices?"',
-                response: '"We write an asynchronous BeautifulSoup & Selenium pipeline that extracts tabular data, passes unstructured text to an LLM for structured JSON output, and updates your dashboard."',
-                code: "data = llm.with_structured_output(PricingSchema).invoke(raw_html)"
+            /* scene 1: typed code */
+            var L = [
+                [["k","import"],["","  pandas "],["k","as"],[""," pd"]],
+                [["k","from"],[""," sklearn "],["k","import"],[""," ensemble"]],
+                [["","df = pd."],["f","read_csv"],["","("],["s","\"sales.csv\""],["",")"]],
+                [["","model = ensemble."],["f","RandomForestClassifier"],["","()"]],
+                [["","model."],["f","fit"],["","(X, y)"]],
+                [["f","print"],["","(model."],["f","score"],["","(X, y))"]]
+            ];
+            var tot = 0;
+            L.forEach(function(l){ l.forEach(function(g){ tot += g[1].length; }); });
+            function code(p){
+                var codeOut = $("codeout");
+                if (!codeOut) return;
+                var n = Math.floor(tot * cl(1, p / 0.8)), h = "";
+                L.forEach(function(l){
+                    var line = "";
+                    l.forEach(function(g){
+                        if (n <= 0) return;
+                        var t = g[1].slice(0, n);
+                        n -= g[1].length;
+                        line += g[0] ? '<span class="' + g[0] + '">' + t + '</span>' : t;
+                    });
+                    if (line) h += line + "<br>";
+                });
+                if (p > 0.85) h += '<span class="o">→ 0.984</span><br>';
+                codeOut.innerHTML = h + '<span class="cur"></span>';
             }
-        };
 
-        agentChips.forEach(chip => {
-            chip.addEventListener("click", () => {
-                const topic = chip.getAttribute("data-topic");
-                const data = demoTopics[topic];
-                if (!data) return;
+            /* scene 2: time series */
+            var N = 48, pts = [], ma = [];
+            for (var i = 0; i < N; i++){
+                var tr = 105 - i * 1.6;
+                pts.push([10 + i * (300 / (N - 1)), tr - 13 * Math.sin(i / 2.6) - 5 * Math.sin(i * 1.3)]);
+                ma.push([pts[i][0], tr]);
+            }
+            function P(a, from, to){
+                var d = "";
+                for (var i = from; i <= to; i++) d += (i == from ? "M" : "L") + a[i][0].toFixed(1) + "," + a[i][1].toFixed(1);
+                return d;
+            }
+            var cut = 35;
+            if ($("act")) $("act").setAttribute("d", P(pts, 0, cut));
+            if ($("ma")) $("ma").setAttribute("d", P(ma, 0, cut));
+            if ($("fc")) $("fc").setAttribute("d", P(ma, cut, N - 1));
+            var up = [], dn = [];
+            for (i = cut; i < N; i++){
+                var w = (i - cut) * 1.8 + 3;
+                up.push((ma[i][0]).toFixed(1) + "," + (ma[i][1] - w).toFixed(1));
+                dn.unshift((ma[i][0]).toFixed(1) + "," + (ma[i][1] + w).toFixed(1));
+            }
+            if ($("band")) $("band").setAttribute("points", up.concat(dn).join(" "));
+            function ts(p){
+                if ($("act")) $("act").style.strokeDashoffset = 1 - ease(p / 0.55);
+                if ($("ma")) $("ma").style.opacity = p > 0.45 ? 1 : 0;
+                if ($("fc")) $("fc").style.opacity = p > 0.68 ? 1 : 0;
+                if ($("band")) $("band").style.opacity = p > 0.68 ? 0.18 : 0;
+                if ($("fclab")) $("fclab").style.opacity = p > 0.75 ? 1 : 0;
+            }
 
-                agentChips.forEach(c => c.classList.replace("bg-indigo-600", "bg-slate-800"));
-                chip.classList.replace("bg-slate-800", "bg-indigo-600");
+            /* scene 3: ML accuracy */
+            function ml(p){
+                var v = 98.4 * ease(p / 0.7);
+                if ($("acc")) $("acc").textContent = v.toFixed(1) + "%";
+                if ($("ring")) $("ring").style.strokeDashoffset = 301.6 * (1 - v / 100);
+                if ($("b1")) $("b1").style.width = (97.1 * ease((p - .1) / .6)) + "%";
+                if ($("b2")) $("b2").style.width = (98.2 * ease((p - .2) / .6)) + "%";
+                if ($("b3")) $("b3").style.width = (97.6 * ease((p - .3) / .6)) + "%";
+            }
 
-                studentQueryEl.style.opacity = "0";
-                mentorResponseEl.style.opacity = "0";
-                setTimeout(() => {
-                    studentQueryEl.innerText = data.query;
-                    mentorResponseEl.innerText = data.response;
-                    codePillEl.innerText = data.code;
-                    studentQueryEl.style.opacity = "1";
-                    mentorResponseEl.style.opacity = "1";
-                }, 200);
-            });
-        });
-
-        // Interactive Code Runner Simulation
-        const runCodeBtn = document.getElementById("run-code-btn");
-        const runCodeStatus = document.getElementById("run-code-status");
-        const runCodeOutput = document.getElementById("run-code-output");
-
-        if (runCodeBtn) {
-            runCodeBtn.addEventListener("click", () => {
-                runCodeStatus.innerText = "⏳ Executing agent pipeline...";
-                runCodeBtn.disabled = true;
-                setTimeout(() => {
-                    runCodeStatus.innerText = "✓ Execution completed";
-                    runCodeOutput.classList.remove("hidden");
-                    runCodeBtn.disabled = false;
-                }, 800);
-            });
-        }
-
-        // Video Modal Interaction
-        const videoTriggers = document.querySelectorAll(".video-card-trigger, #hero-play-video-btn");
-        const videoModal = document.getElementById("video-modal");
-        const closeButtons = document.querySelectorAll(".close-modal-button");
-        const youtubeVideo = document.getElementById("youtube-video");
-        const videoIframeContainer = document.getElementById("video-iframe-container");
-        const videoFallbackContainer = document.getElementById("video-fallback-container");
-
-        // Optional: Replace with your actual YouTube embed URL e.g. "https://www.youtube.com/embed/YOUR_ID?autoplay=1"
-        const CUSTOM_YOUTUBE_URL = ""; 
-
-        videoTriggers.forEach(btn => {
-            btn.addEventListener("click", () => {
-                if (CUSTOM_YOUTUBE_URL) {
-                    youtubeVideo.src = CUSTOM_YOUTUBE_URL;
-                    videoIframeContainer.classList.remove("hidden");
-                    videoFallbackContainer.classList.add("hidden");
-                } else {
-                    youtubeVideo.src = "";
-                    videoIframeContainer.classList.add("hidden");
-                    videoFallbackContainer.classList.remove("hidden");
+            /* scene 4: fraud */
+            var T = [["UPI · Mumbai","₹1,200"],["Card · Ahmedabad","₹3,450"],["NetBanking · Surat","₹18,000"],["Wire · Unknown · 3:02 AM","₹4,82,000"],["UPI · Pune","₹640"]];
+            var rows = $("anim-rows");
+            if (rows && rows.children.length === 0){
+                T.forEach(function(t){
+                    var d = document.createElement("div");
+                    d.className = "anim-row";
+                    d.innerHTML = "<span>" + t[0] + "</span><b>" + t[1] + "</b><span class='ok'>✓ safe</span>";
+                    rows.appendChild(d);
+                });
+            }
+            function fraud(p){
+                if (!rows) return;
+                var els = rows.children;
+                for (var i = 0; i < els.length; i++){
+                    var on = p > i * 0.1 + 0.02;
+                    els[i].classList.toggle("show", on);
+                    var bad = (i == 3 && p > 0.6);
+                    els[i].classList.toggle("bad", bad);
+                    var st = els[i].lastChild;
+                    if (st) {
+                        st.className = bad ? "" : "ok";
+                        st.textContent = bad ? "⚠ risk 0.97" : "✓ safe";
+                    }
                 }
-                videoModal.classList.remove("hidden");
-                setTimeout(() => videoModal.classList.add("opacity-100"), 10);
-            });
-        });
+                if ($("alert")) $("alert").classList.toggle("show", p > 0.68);
+            }
 
-        closeButtons.forEach(btn => {
-            btn.addEventListener("click", () => {
-                videoModal.classList.remove("opacity-100");
-                setTimeout(() => {
-                    videoModal.classList.add("hidden");
-                    if (youtubeVideo) youtubeVideo.src = "";
-                }, 300);
-            });
-        });
-
-        if (videoModal) {
-            videoModal.addEventListener("click", (e) => {
-                if (e.target === videoModal) {
-                    videoModal.classList.remove("opacity-100");
-                    setTimeout(() => {
-                        videoModal.classList.add("hidden");
-                        if (youtubeVideo) youtubeVideo.src = "";
-                    }, 300);
+            /* scene 5: computer vision */
+            function cv(p){
+                var sx = 320 * cl(1, p / 0.35);
+                if ($("scan")) {
+                    $("scan").setAttribute("x", sx);
+                    $("scan").style.opacity = p < 0.38 ? 1 : 0;
                 }
-            });
-        }
+                if ($("b_per")) $("b_per").style.opacity = p > 0.3 ? 1 : 0;
+                if ($("b_car")) $("b_car").style.opacity = p > 0.5 ? 1 : 0;
+            }
+
+            /* scene 6: CTA fades via CSS */
+            var fn = {code:code, ts:ts, ml:ml, fraud:fraud, cv:cv, cta:function(){}};
+
+            var clock = 0, last = performance.now(), paused = false, cur = -1;
+            var cardEl = $("card");
+            if (cardEl) {
+                cardEl.addEventListener("click", function(){ paused = !paused; });
+            }
+            function tick(now){
+                var dt = now - last; last = now;
+                if (!paused) clock += dt;
+                var t = clock % D;
+                var pgEl = $("pg");
+                if (pgEl) pgEl.style.width = (t / D * 100) + "%";
+                for (var i = 0; i < S.length; i++){
+                    var sc = S[i];
+                    if (t >= sc.s && t < sc.e){
+                        if (cur !== i){
+                            if (cur >= 0 && $(S[cur].id)) $(S[cur].id).classList.remove("on");
+                            if ($(sc.id)) $(sc.id).classList.add("on");
+                            var fEl = $("file"); if (fEl) fEl.textContent = sc.f;
+                            var cEl = $("cap"); if (cEl) cEl.textContent = sc.c;
+                            cur = i;
+                        }
+                        if (fn[sc.id]) fn[sc.id]((t - sc.s) / (sc.e - sc.s));
+                        break;
+                    }
+                }
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        })();
 
         // High-Converting Lead Booking Form Handler
         const leadForm = document.getElementById("lead-booking-form");
