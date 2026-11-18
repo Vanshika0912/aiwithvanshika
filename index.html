@@ -39,14 +39,55 @@
             {
                 "@type": "Person",
                 "@id": "https://aiwithvanshika.com/#vanshika",
-                "name": "Vanshika",
+                "name": "Vanshika Garg",
                 "url": "https://aiwithvanshika.com/",
-                "image": "https://aiwithvanshika.com/assets/my-profile/pp1.png",
+                "image": "https://aiwithvanshika.com/assets/my-profile/pp1_web.jpg",
                 "jobTitle": "AI, ML & Python Mentor",
+                "telephone": "+918448168576",
                 "email": "mailto:aiwithvanshika@gmail.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Vapi",
+                    "addressRegion": "Gujarat",
+                    "addressCountry": "IN"
+                },
                 "sameAs": [
                     "https://www.linkedin.com/in/vanshika-garg-b50161240/",
                     "https://www.instagram.com/vanshika0912_/"
+                ]
+            },
+            {
+                "@type": "Course",
+                "@id": "https://aiwithvanshika.com/#course",
+                "name": "Live 1-on-1 AI, Machine Learning & Python Mentorship",
+                "description": "Structured roadmap from Python mastery and Data Analysis to Machine Learning, Deep Learning, Generative AI, and Autonomous AI Agents. Live 1-on-1 sessions, small batches, and deployed portfolio projects.",
+                "provider": { "@id": "https://aiwithvanshika.com/#vanshika" },
+                "educationalCredentialAwarded": "Production-grade AI & Python Portfolio with Live Deployed Web Apps",
+                "courseMode": "Online",
+                "inLanguage": ["en", "hi"],
+                "hasCourseInstance": {
+                    "@type": "CourseInstance",
+                    "courseMode": "Online",
+                    "courseWorkload": "PT5H",
+                    "instructor": { "@id": "https://aiwithvanshika.com/#vanshika" }
+                },
+                "offers": [
+                    {
+                        "@type": "Offer",
+                        "name": "Student Mentorship Plan",
+                        "price": "2999",
+                        "priceCurrency": "INR",
+                        "url": "https://aiwithvanshika.com/#fees",
+                        "category": "Monthly Mentorship"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Professional Mentorship Plan",
+                        "price": "3499",
+                        "priceCurrency": "INR",
+                        "url": "https://aiwithvanshika.com/#fees",
+                        "category": "Monthly Mentorship"
+                    }
                 ]
             },
             {
@@ -56,7 +97,7 @@
                 "name": "AI With Vanshika Mentorship Program",
                 "description": "Live, personalized 1-on-1 and small-batch mentorship covering Python, Machine Learning, Deep Learning, and Generative AI, with a structured roadmap and real deployed projects.",
                 "provider": { "@id": "https://aiwithvanshika.com/#vanshika" },
-                "areaServed": "IN",
+                "areaServed": ["IN", "Worldwide"],
                 "audience": {
                     "@type": "Audience",
                     "audienceType": "Students and working professionals"
@@ -128,6 +169,40 @@
     }
     </script>
 
+    <!-- Google Analytics & Google Ads Conversion Tracking (Ready for Campaign Activation) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-XXXXXXXXXX'); // Replace with your Google Ads ID
+      gtag('config', 'G-XXXXXXXXXX');  // Replace with your GA4 ID
+    </script>
+    -->
+    <script>
+      // Global conversion event tracker for Google Ads & Analytics
+      function trackConversion(action, label) {
+          if (typeof gtag === 'function') {
+              gtag('event', 'conversion', {
+                  'event_category': 'Engagement',
+                  'event_label': label || action,
+                  'value': 1.0
+              });
+              gtag('event', action, {
+                  'event_category': 'Mentorship_Lead',
+                  'event_label': label
+              });
+          }
+          if (window.dataLayer) {
+              window.dataLayer.push({
+                  'event': action,
+                  'conversion_label': label
+              });
+          }
+      }
+    </script>
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -178,6 +253,13 @@
         }
         .float-anim {
             animation: gentle-float 3.5s ease-in-out infinite;
+        }
+
+        /* Hero terminal tab styles */
+        .hero-tab-btn.active {
+            background-color: #4F46E5 !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
         }
 
         /* Looping "chaos" animation standing in for a GIF */
@@ -276,24 +358,174 @@
                 </div>
             </div>
 
-            <!-- Right Column: Video Card Placeholder -->
-            <div class="md:w-1/2 relative flex justify-center items-center p-6 bg-white rounded-3xl shadow-xl border border-slate-200 aspect-video max-w-xl w-full video-card-placeholder">
-                <div class="absolute inset-0 flex justify-center items-center">
-                    <button class="relative z-10 p-5 rounded-full bg-white bg-opacity-30 backdrop-filter backdrop-blur-md shadow-2xl border border-white border-opacity-30 text-white hover:scale-105 transition-all duration-300 ease-in-out play-button">
-                        <svg class="w-12 h-12 text-indigo-600" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </button>
+            <!-- Right Column: Interactive Hero Studio / AI Demo / Video & GIF Frame -->
+            <div class="md:w-1/2 relative w-full max-w-xl mx-auto">
+                <!-- Ambient Tech Glow Behind Card -->
+                <div class="absolute -inset-3 bg-gradient-to-r from-indigo-500/25 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl -z-10"></div>
+
+                <div class="bg-slate-900 rounded-3xl shadow-2xl border border-slate-800 overflow-hidden text-slate-200">
+                    <!-- Window Header Bar -->
+                    <div class="bg-slate-950 px-5 py-3.5 border-b border-slate-800/80 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                            <span class="text-xs font-mono text-slate-400 ml-2 hidden sm:inline">live-mentorship-session.py</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">Live Demo</span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Mode Tabs -->
+                    <div class="bg-slate-900/90 px-4 pt-3 pb-2 border-b border-slate-800 flex gap-2 overflow-x-auto text-xs font-medium">
+                        <button id="tab-btn-agent" class="hero-tab-btn active px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold transition-all">
+                            🤖 Live AI Agent
+                        </button>
+                        <button id="tab-btn-code" class="hero-tab-btn px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                            🐍 Python & ML
+                        </button>
+                        <button id="tab-btn-video" class="hero-tab-btn px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-1.5">
+                            <span>🎬 Video / GIF Tour</span>
+                        </button>
+                    </div>
+
+                    <!-- Tab Content 1: AI Agent Live Simulator -->
+                    <div id="tab-content-agent" class="hero-tab-panel p-5 min-h-[300px] flex flex-col justify-between">
+                        <div class="space-y-3 font-sans text-xs">
+                            <!-- Mentorship Session Info -->
+                            <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[11px] text-slate-400">
+                                <span>Mentor: <strong class="text-indigo-400">Vanshika Garg</strong></span>
+                                <span class="text-emerald-400 font-mono">● 1-on-1 Interactive</span>
+                            </div>
+
+                            <!-- Dialogue Simulation -->
+                            <div class="bg-slate-950/70 rounded-xl p-3.5 border border-slate-800/80">
+                                <div class="text-[11px] font-bold text-indigo-400 mb-1 flex items-center gap-1.5">
+                                    <span>👤</span> Student Query:
+                                </div>
+                                <p id="demo-student-query" class="text-slate-300 text-xs">
+                                    "How do I build an AI Agent with persistent memory using LangChain?"
+                                </p>
+                            </div>
+
+                            <div class="bg-indigo-950/40 rounded-xl p-3.5 border border-indigo-900/50">
+                                <div class="text-[11px] font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
+                                    <span>👩‍💻</span> Vanshika (Live Mentor):
+                                </div>
+                                <p id="demo-mentor-response" class="text-slate-300 text-xs leading-relaxed">
+                                    "We structure it in 3 clean layers: 1) Vector Store retriever for custom knowledge, 2) ConversationBufferMemory to retain context, and 3) Tool-calling agent execution loop."
+                                </p>
+                                <div class="mt-2.5 flex items-center gap-2 font-mono text-[11px] text-indigo-300 bg-indigo-950/80 px-2.5 py-1.5 rounded border border-indigo-800/50 overflow-x-auto">
+                                    <span class="text-emerald-400">✓</span>
+                                    <span id="demo-code-pill">agent = create_openai_tools_agent(llm, tools, prompt)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Prompt Selector Chips -->
+                        <div class="mt-4 pt-3 border-t border-slate-800">
+                            <p class="text-[11px] font-semibold text-slate-400 mb-2">Click to test different mentorship topics:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <button class="agent-chip text-[11px] bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-300 px-2.5 py-1 rounded-md transition-colors" data-topic="rag">
+                                    ⚡ RAG Pipeline
+                                </button>
+                                <button class="agent-chip text-[11px] bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-300 px-2.5 py-1 rounded-md transition-colors" data-topic="ml">
+                                    📊 Machine Learning
+                                </button>
+                                <button class="agent-chip text-[11px] bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-300 px-2.5 py-1 rounded-md transition-colors" data-topic="scraper">
+                                    🕷️ Python Automation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 2: Python & ML Code Runner -->
+                    <div id="tab-content-code" class="hero-tab-panel hidden p-5 min-h-[300px] flex flex-col justify-between font-mono text-xs">
+                        <div class="bg-slate-950/90 rounded-xl p-4 border border-slate-800 space-y-1.5 overflow-x-auto text-[11.5px] leading-relaxed">
+                            <p class="text-slate-500"># 1-on-1 Mentorship Code Execution</p>
+                            <p><span class="text-purple-400">from</span> <span class="text-indigo-300">langchain_openai</span> <span class="text-purple-400">import</span> ChatOpenAI</p>
+                            <p><span class="text-purple-400">from</span> <span class="text-indigo-300">ai_mentorship</span> <span class="text-purple-400">import</span> StudentProject</p>
+                            <p class="text-slate-500 mt-2"># Build, test & deploy real systems</p>
+                            <p>llm = ChatOpenAI(model=<span class="text-emerald-300">"gpt-4o"</span>, temperature=<span class="text-amber-300">0</span>)</p>
+                            <p>project = StudentProject(mentor=<span class="text-emerald-300">"Vanshika"</span>, deployed=<span class="text-amber-300">True</span>)</p>
+                            <p class="text-indigo-300">project.deploy(platform=<span class="text-emerald-300">"Streamlit Cloud"</span>)</p>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+                            <button id="run-code-btn" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-colors">
+                                <span>▶ Run Code</span>
+                            </button>
+                            <span id="run-code-status" class="text-[11px] text-slate-400">Click to execute live</span>
+                        </div>
+                        <div id="run-code-output" class="hidden mt-2 p-2.5 bg-slate-950 rounded-lg border border-emerald-900/40 text-[11px] text-emerald-400 font-mono">
+                            ✓ [Success]: Deployment Live at https://aiwithvanshika.demo/agent (Status: 200 OK)
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 3: Video & GIF Showcase -->
+                    <div id="tab-content-video" class="hero-tab-panel hidden p-5 min-h-[300px] flex flex-col items-center justify-center relative">
+                        <!-- Animated Visual or GIF Container -->
+                        <div class="w-full h-52 bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 rounded-2xl border border-indigo-900/40 relative overflow-hidden flex flex-col items-center justify-center p-6 text-center group cursor-pointer video-card-trigger">
+                            <!-- Animated backdrop pulse -->
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.25),transparent_70%)] animate-pulse"></div>
+                            
+                            <!-- Floating code particles in background -->
+                            <div class="absolute top-3 left-4 text-[10px] font-mono text-indigo-400/40">import torch</div>
+                            <div class="absolute bottom-3 right-4 text-[10px] font-mono text-purple-400/40">LangChain.Agent()</div>
+                            <div class="absolute top-1/2 left-3 -translate-y-1/2 text-[10px] font-mono text-emerald-400/30">accuracy: 98.4%</div>
+
+                            <!-- Play Button -->
+                            <button class="relative z-10 w-16 h-16 rounded-full bg-indigo-600/90 group-hover:bg-indigo-500 text-white shadow-2xl shadow-indigo-500/50 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 mb-3">
+                                <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </button>
+                            <p class="relative z-10 text-xs font-semibold text-white">Watch Program Intro</p>
+                            <p class="relative z-10 text-[11px] text-slate-400 mt-1">Interactive overview of the learning journey</p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Footer Bar of Card -->
+                    <div class="bg-slate-950 px-5 py-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <span class="text-amber-400">★</span> 100% Practical • Zero Pre-recorded Fluff
+                        </span>
+                        <a href="#contact" class="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1 transition-colors">
+                            <span>Book Free Session</span>
+                            <span>→</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Modal Placeholder -->
-    <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-80 z-[100] flex justify-center items-center hidden opacity-0 transition-opacity duration-300 ease-in-out">
-        <div class="relative w-full max-w-4xl aspect-video bg-gray-900 rounded-lg overflow-hidden">
-            <button class="absolute top-4 right-4 text-white text-3xl z-20 hover:text-gray-300 close-modal-button">&times;</button>
-            <iframe id="youtube-video" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- Video Modal with High-Conversion Fallback -->
+    <div id="video-modal" class="fixed inset-0 bg-black/80 z-[100] flex justify-center items-center hidden opacity-0 transition-opacity duration-300 ease-in-out p-4">
+        <div class="relative w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl p-6 md:p-8 text-center">
+            <button class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl z-20 close-modal-button">&times;</button>
+            
+            <div id="video-iframe-container" class="hidden aspect-video w-full mb-4">
+                <iframe id="youtube-video" class="w-full h-full rounded-2xl" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div id="video-fallback-container" class="py-4">
+                <div class="w-16 h-16 rounded-full bg-indigo-500/20 text-indigo-400 mx-auto flex items-center justify-center mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">Want to Speak Directly With Vanshika?</h3>
+                <p class="text-slate-300 text-sm max-w-md mx-auto mb-6">
+                    Because this is a personalized 1-on-1 mentorship program, we prioritize real conversations over generic marketing videos. Have a 15-minute discussion to map out your personalized roadmap.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <a href="https://wa.me/918448168576?text=Hi%20Vanshika%21%20I%20watched%20your%20website%20preview%20and%20would%20like%20to%20book%20a%20free%201-on-1%20strategy%20session." target="_blank" rel="noopener" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full text-sm inline-flex items-center justify-center gap-2 transition-all">
+                        <span>💬 Chat on WhatsApp (+91 84481 68576)</span>
+                    </a>
+                    <button class="close-modal-button bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold py-3 px-6 rounded-full text-sm transition-all">
+                        Close Preview
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -309,7 +541,7 @@
                     <span class="drift-2 absolute left-[30%] top-[86%] bg-white border border-red-200 text-red-500 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm z-0">Forum Thread #203</span>
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="confused-glow relative z-10 w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-white shadow-xl">
-                            <img src="assets/others/confused_girl.jpg" alt="Learner feeling overwhelmed and confused by scattered AI tutorials" class="w-full h-full object-cover">
+                            <img src="assets/others/confused_girl.jpg" alt="Learner feeling overwhelmed and confused by scattered AI tutorials" width="500" height="500" loading="lazy" decoding="async" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -592,7 +824,7 @@
                 <div class="flip-card cursor-pointer reveal" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/project_images/ai_chatbot.jpg" alt="AI Chatbot project preview" loading="lazy">
+                            <img src="assets/project_images/ai_chatbot.jpg" alt="AI Chatbot project preview" width="800" height="453" loading="lazy" decoding="async">
                             <h3 class="text-xl font-bold text-slate-900 mb-2">AI Chatbot</h3>
                             <p class="text-slate-700 text-center text-sm">Conversational AI for information delivery.</p>
                         </div>
@@ -613,7 +845,7 @@
                 <div class="flip-card cursor-pointer reveal" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/project_images/resume_analyzer.jpg" alt="Resume Analyzer project preview" loading="lazy">
+                            <img src="assets/project_images/resume_analyzer.jpg" alt="Resume Analyzer project preview" width="800" height="453" loading="lazy" decoding="async">
                             <h3 class="text-xl font-bold text-slate-900 mb-2">Resume Analyzer</h3>
                             <p class="text-slate-700 text-center text-sm">AI tool to parse and score resumes.</p>
                         </div>
@@ -634,7 +866,7 @@
                 <div class="flip-card cursor-pointer reveal" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/project_images/ai_assistant.jpg" alt="AI Assistant project preview" loading="lazy">
+                            <img src="assets/project_images/ai_assistant.jpg" alt="AI Assistant project preview" width="800" height="453" loading="lazy" decoding="async">
                             <h3 class="text-xl font-bold text-slate-900 mb-2">AI Assistant</h3>
                             <p class="text-slate-700 text-center text-sm">Personal assistant with voice commands.</p>
                         </div>
@@ -655,7 +887,7 @@
                 <div class="flip-card cursor-pointer reveal" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/project_images/automate_workflows.jpg" alt="Automation Workflows project preview" loading="lazy">
+                            <img src="assets/project_images/automate_workflows.jpg" alt="Automation Workflows project preview" width="800" height="453" loading="lazy" decoding="async">
                             <h3 class="text-xl font-bold text-slate-900 mb-2">Automation Workflows</h3>
                             <p class="text-slate-700 text-center text-sm">AI-powered automation for repetitive tasks.</p>
                         </div>
@@ -676,7 +908,7 @@
                 <div class="flip-card cursor-pointer reveal" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/project_images/rag_system.jpg" alt="RAG Knowledge Assistant project preview" loading="lazy">
+                            <img src="assets/project_images/rag_system.jpg" alt="RAG Knowledge Assistant project preview" width="800" height="453" loading="lazy" decoding="async">
                             <h3 class="text-xl font-bold text-slate-900 mb-2">RAG Knowledge Assistant</h3>
                             <p class="text-slate-700 text-center text-sm">Accurate answers from a private knowledge base.</p>
                         </div>
@@ -697,7 +929,7 @@
                 <div class="flip-card cursor-pointer reveal" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/project_images/data_dashboard.jpg" alt="Dashboard Applications project preview" loading="lazy">
+                            <img src="assets/project_images/data_dashboard.jpg" alt="Dashboard Applications project preview" width="800" height="453" loading="lazy" decoding="async">
                             <h3 class="text-xl font-bold text-slate-900 mb-2">Dashboard Applications</h3>
                             <p class="text-slate-700 text-center text-sm">Visualize complex data in real-time dashboards.</p>
                         </div>
@@ -754,10 +986,33 @@
     <section class="py-20 md:py-24 bg-gradient-to-b from-white to-indigo-50/60" id="mentor">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Column: Mentor Photo -->
+                <!-- Left Column: Mentor Photo with Ambient Glow & Trust Badges -->
                 <div class="reveal flex justify-center lg:justify-start">
-                    <div class="w-full max-w-md bg-gradient-to-br from-indigo-200 to-violet-200 rounded-3xl p-4 shadow-xl relative aspect-[4/5] flex items-center justify-center overflow-hidden">
-                        <img src="assets/my-profile/pp1.png" alt="Vanshika - AI, ML & Python Mentor" class="absolute inset-0 w-full h-full object-cover object-top rounded-3xl"/>
+                    <div class="relative w-full max-w-md">
+                        <!-- Ambient Tech Halo Glow -->
+                        <div class="absolute -inset-3 bg-gradient-to-tr from-indigo-500/25 via-purple-500/20 to-pink-500/15 rounded-3xl blur-2xl -z-10"></div>
+                        
+                        <!-- Image Container with Luxury Double Border & Styling -->
+                        <div class="relative rounded-3xl p-2 bg-gradient-to-b from-indigo-200/80 via-white to-indigo-100 shadow-2xl overflow-hidden aspect-[4/5] w-full border border-indigo-100">
+                            <img src="assets/my-profile/pp1_web.jpg" onerror="this.src='assets/my-profile/pp1.png'" alt="Vanshika Garg - AI, ML & Python Mentor" width="1024" height="1536" loading="lazy" decoding="async" class="w-full h-full object-cover object-top rounded-2xl shadow-inner"/>
+                            
+                            <!-- Floating Top-Right Badge: 1-on-1 Dedicated -->
+                            <div class="absolute top-5 right-5 bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-lg rounded-full px-3.5 py-1.5 flex items-center gap-1.5 text-xs font-bold text-slate-800">
+                                <span class="text-amber-500">⭐</span> 1-on-1 Dedicated Mentor
+                            </div>
+
+                            <!-- Floating Bottom-Left Credibility Card -->
+                            <div class="absolute bottom-5 left-5 right-5 bg-slate-900/90 backdrop-blur-md border border-white/15 shadow-xl rounded-2xl p-3.5 text-white text-xs">
+                                <div class="flex items-center justify-between mb-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                        <span class="font-bold text-white text-xs">Vanshika Garg</span>
+                                    </div>
+                                    <span class="text-[10px] uppercase font-semibold tracking-wider text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">Accepting Students</span>
+                                </div>
+                                <p class="text-[11px] text-slate-300 font-medium">Software Engineer • AI/ML & Python Mentor</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -895,7 +1150,7 @@
                             </li>
                         </ul>
 
-                        <a href="https://wa.me/918448168576?text=Hi%20Vanshika%21%20I%27m%20a%20student%20and%20I%27d%20like%20to%20secure%20my%20seat%20in%20the%20AI%2FML%2FPython%20mentorship%20program%20%28Student%20Plan%2C%20%E2%82%B92%2C999%2Fmonth%29.%20Please%20guide%20me%20on%20the%20next%20steps." target="_blank" rel="noopener" class="w-full bg-indigo-600 text-white font-bold py-4 px-8 rounded-2xl hover:bg-indigo-700 shadow-xl shadow-indigo-600/20 transform hover:-translate-y-1 transition-all duration-300 ease-in-out flex items-center justify-center gap-2">
+                        <a href="https://wa.me/918448168576?text=Hi%20Vanshika%21%20I%27m%20a%20student%20and%20I%27d%20like%20to%20secure%20my%20seat%20in%20the%20AI%2FML%2FPython%20mentorship%20program%20%28Student%20Plan%2C%20%E2%82%B92%2C999%2Fmonth%29.%20Please%20guide%20me%20on%20the%20next%20steps." target="_blank" rel="noopener" onclick="trackConversion('whatsapp_lead', 'Student Plan')" class="w-full bg-indigo-600 text-white font-bold py-4 px-8 rounded-2xl hover:bg-indigo-700 shadow-xl shadow-indigo-600/20 transform hover:-translate-y-1 transition-all duration-300 ease-in-out flex items-center justify-center gap-2">
                             <span>Secure Your Seat (Pay Month 1)</span>
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
@@ -952,7 +1207,7 @@
                             </li>
                         </ul>
 
-                        <a href="https://wa.me/918448168576?text=Hi%20Vanshika%21%20I%27m%20a%20student%20and%20I%27d%20like%20to%20secure%20my%20seat%20in%20the%20AI%2FML%2FPython%20mentorship%20program%20%28Student%20Plan%2C%20%E2%82%B92%2C999%2Fmonth%29.%20Please%20guide%20me%20on%20the%20next%20steps." target="_blank" rel="noopener" class="w-full bg-indigo-600 text-white font-bold py-4 px-8 rounded-2xl hover:bg-indigo-700 shadow-xl shadow-indigo-600/20 transform hover:-translate-y-1 transition-all duration-300 ease-in-out flex items-center justify-center gap-2">
+                        <a href="https://wa.me/918448168576?text=Hi%20Vanshika%21%20I%27m%20a%20working%20professional%20and%20I%27d%20like%20to%20secure%20my%20seat%20in%20the%20AI%2FML%2FPython%20mentorship%20program%20%28Professional%20Plan%2C%20%E2%82%B93%2C499%2Fmonth%29.%20Please%20guide%20me%20on%20the%20next%20steps." target="_blank" rel="noopener" onclick="trackConversion('whatsapp_lead', 'Professional Plan')" class="w-full bg-indigo-600 text-white font-bold py-4 px-8 rounded-2xl hover:bg-indigo-700 shadow-xl shadow-indigo-600/20 transform hover:-translate-y-1 transition-all duration-300 ease-in-out flex items-center justify-center gap-2">
                             <span>Secure Your Seat (Pay Month 1)</span>
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
@@ -1065,30 +1320,68 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                <!-- Left: Call / WhatsApp block -->
+                <!-- Left: Call / WhatsApp direct card -->
                 <div class="reveal bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 backdrop-blur-sm text-center flex flex-col justify-center">
-                    <p class="text-slate-300 mb-3 font-medium">Have questions? Call me directly — I personally answer every query.</p>
-                    <a href="tel:+918448168576" class="block text-3xl sm:text-4xl md:text-5xl font-extrabold text-white hover:text-indigo-300 transition-colors duration-200 mb-8 tracking-tight">
+                    <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2">Direct Contact</span>
+                    <p class="text-slate-300 mb-3 font-medium">Have questions? Call or message directly — Vanshika personally answers every inquiry.</p>
+                    <a href="tel:+918448168576" onclick="trackConversion('phone_call_click', 'Contact Phone')" class="block text-3xl sm:text-4xl md:text-5xl font-extrabold text-white hover:text-indigo-300 transition-colors duration-200 mb-6 tracking-tight">
                         +91 84481 68576
                     </a>
-                    <a href="https://wa.me/918448168576?text=Hi%20Vanshika%21%20I%27m%20interested%20in%20your%20AI%2FML%2FPython%20mentorship%20program%20and%20would%20like%20to%20book%20a%20free%20discussion%20session." target="_blank" rel="noopener" class="w-full bg-indigo-600 text-white font-bold px-10 py-4 rounded-full hover:bg-indigo-700 shadow-2xl shadow-indigo-600/30 transform hover:-translate-y-1 transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-2">
-                        <svg class="w-5 h-5 text-green-400 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 3.655 1.57 6.923 4.07 9.172L3 24l2.707-1.077c.928.257 1.9.405 2.893.405 6.627 0 12-5.373 12-12S18.627 0 12 0zm4.516 13.92c-.248-.124-.913-.453-1.055-.503-.143-.05-.248-.075-.353.075-.105.15-.407.503-.499.603-.092.1-.179.113-.332.037-.152-.075-.643-.237-1.222-.752-.452-.397-.759-.844-.849-.994-.09-.15-.009-.139.066-.201.066-.061.15-.15.225-.225.075-.075.1-.129.15-.225.05-.096.025-.179-.013-.254-.037-.075-.339-.81-.464-1.109-.124-.299-.248-.254-.332-.254-.736-.008-1.296.568-1.401.692-.105.124-.225.299-.33.453-.105.15-.21.314-.302.488-.092.174-.188.353-.289.539-.33 1.189-.105 2.126.248 2.653.353.527.752.791 1.341 1.055.589.263 1.19.453 1.779.628.913.275 1.758.263 2.424.162.665-.101 1.32-.407 1.549-.785.229-.378.229-.692.162-.816z"/></svg>
-                        <span>Chat On WhatsApp</span>
+                    <a href="https://wa.me/918448168576?text=Hi%20Vanshika%21%20I%27m%20interested%20in%20your%20AI%2FML%2FPython%20mentorship%20program%20and%20would%20like%20to%20book%20a%20free%20discussion%20session." target="_blank" rel="noopener" onclick="trackConversion('whatsapp_lead', 'Contact Section')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-4 rounded-full shadow-2xl shadow-emerald-600/30 transform hover:-translate-y-1 transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 3.655 1.57 6.923 4.07 9.172L3 24l2.707-1.077c.928.257 1.9.405 2.893.405 6.627 0 12-5.373 12-12S18.627 0 12 0zm4.516 13.92c-.248-.124-.913-.453-1.055-.503-.143-.05-.248-.075-.353.075-.105.15-.407.503-.499.603-.092.1-.179.113-.332.037-.152-.075-.643-.237-1.222-.752-.452-.397-.759-.844-.849-.994-.09-.15-.009-.139.066-.201.066-.061.15-.15.225-.225.075-.075.1-.129.15-.225.05-.096.025-.179-.013-.254-.037-.075-.339-.81-.464-1.109-.124-.299-.248-.254-.332-.254-.736-.008-1.296.568-1.401.692-.105.124-.225.299-.33.453-.105.15-.21.314-.302.488-.092.174-.188.353-.289.539-.33 1.189-.105 2.126.248 2.653.353.527.752.791 1.341 1.055.589.263 1.19.453 1.779.628.913.275 1.758.263 2.424.162.665-.101 1.32-.407 1.549-.785.229-.378.229-.692.162-.816z"/></svg>
+                        <span>Chat Instantly On WhatsApp</span>
                     </a>
-                    <p class="text-slate-500 text-sm mt-5">Every call and message is answered by Vanshika personally — no bots, no call centers.</p>
+                    <p class="text-slate-400 text-xs mt-4">Every call and message is handled personally by Vanshika — no bots, no sales reps.</p>
                 </div>
 
-                <!-- Right: Google Map -->
-                <div class="reveal rounded-3xl overflow-hidden border border-white/10 shadow-2xl min-h-[320px]">
-                    <iframe
-                        src="https://www.google.com/maps?q=Vapi,+Gujarat&output=embed"
-                        class="w-full h-full min-h-[320px]"
-                        style="border:0;"
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="AI With Vanshika location - Vapi, Gujarat">
-                    </iframe>
+                <!-- Right: Quick Strategy Session Booking Form (High-Converting Lead Gen) -->
+                <div class="reveal bg-slate-900/90 border border-white/10 rounded-3xl p-8 md:p-10 backdrop-blur-md shadow-2xl flex flex-col justify-center">
+                    <div class="mb-5">
+                        <span class="text-xs uppercase tracking-widest text-emerald-400 font-bold">Free 1-on-1 Call</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Request Free Strategy Session</h3>
+                        <p class="text-xs text-slate-300 mt-1">Get your personalized AI & Python learning roadmap mapped out.</p>
+                    </div>
+
+                    <form id="lead-booking-form" class="space-y-4">
+                        <div>
+                            <label for="lead-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Your Name *</label>
+                            <input type="text" id="lead-name" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 text-sm">
+                        </div>
+
+                        <div>
+                            <label for="lead-phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">WhatsApp / Phone *</label>
+                            <input type="tel" id="lead-phone" required placeholder="e.g. +91 98765 43210" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 text-sm">
+                        </div>
+
+                        <div>
+                            <label for="lead-category" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Your Current Goal *</label>
+                            <select id="lead-category" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-indigo-500 text-sm">
+                                <option value="College / School Student (₹2,999/mo)">College / School Student (Student Plan - ₹2,999/mo)</option>
+                                <option value="Working Professional (₹3,499/mo)">Working Professional (Professional Plan - ₹3,499/mo)</option>
+                                <option value="Python & AI from Scratch">Python & AI from Scratch (Beginner)</option>
+                                <option value="Generative AI & LLM Agents">Generative AI & LLM Agents (Advanced)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-indigo-600/30 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 text-sm">
+                            <span>🚀 Book Free Strategy Call</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+
+                        <div id="lead-form-status" class="hidden text-center text-xs p-3 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                            ✓ Success! Opening WhatsApp to connect directly with Vanshika...
+                        </div>
+                    </form>
                 </div>
+            </div>
+
+            <!-- Credibility & Global Delivery Bar -->
+            <div class="mt-10 pt-6 border-t border-slate-800 text-center text-xs text-slate-400">
+                <span>📍 Based in Gujarat, India</span>
+                <span class="mx-2">•</span>
+                <span>Live 1-on-1 Sessions via Google Meet & Zoom across India & Worldwide</span>
+                <span class="mx-2">•</span>
+                <span>Flexible Evening & Weekend Batches</span>
             </div>
         </div>
     </section>
@@ -1187,32 +1480,176 @@
             link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
         });
 
-        // Video Modal Interaction
-        const videoCard = document.querySelector(".video-card-placeholder");
-        const videoModal = document.getElementById("video-modal");
-        const closeModalButton = document.querySelector(".close-modal-button");
-        const youtubeVideo = document.getElementById("youtube-video");
+        // Hero Studio Tab Switching Logic
+        const tabBtns = {
+            agent: document.getElementById("tab-btn-agent"),
+            code: document.getElementById("tab-btn-code"),
+            video: document.getElementById("tab-btn-video")
+        };
+        const tabPanels = {
+            agent: document.getElementById("tab-content-agent"),
+            code: document.getElementById("tab-content-code"),
+            video: document.getElementById("tab-content-video")
+        };
 
-        videoCard.addEventListener("click", () => {
-            videoModal.classList.remove("hidden");
-            setTimeout(() => videoModal.classList.add("opacity-100"), 10);
-            // Placeholder video URL, replace with actual YouTube embed URL
-            youtubeVideo.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"; 
-        });
+        function switchHeroTab(activeTab) {
+            Object.keys(tabBtns).forEach(key => {
+                if (tabBtns[key]) {
+                    if (key === activeTab) {
+                        tabBtns[key].classList.add("active", "bg-indigo-600", "text-white");
+                        tabBtns[key].classList.remove("bg-slate-800", "text-slate-300");
+                    } else {
+                        tabBtns[key].classList.remove("active", "bg-indigo-600", "text-white");
+                        tabBtns[key].classList.add("bg-slate-800", "text-slate-300");
+                    }
+                }
+                if (tabPanels[key]) {
+                    if (key === activeTab) {
+                        tabPanels[key].classList.remove("hidden");
+                    } else {
+                        tabPanels[key].classList.add("hidden");
+                    }
+                }
+            });
+        }
 
-        closeModalButton.addEventListener("click", () => {
-            videoModal.classList.remove("opacity-100");
-            setTimeout(() => videoModal.classList.add("hidden"), 300);
-            youtubeVideo.src = ""; // Stop the video
-        });
+        if (tabBtns.agent) tabBtns.agent.addEventListener("click", () => switchHeroTab("agent"));
+        if (tabBtns.code) tabBtns.code.addEventListener("click", () => switchHeroTab("code"));
+        if (tabBtns.video) tabBtns.video.addEventListener("click", () => switchHeroTab("video"));
 
-        videoModal.addEventListener("click", (e) => {
-            if (e.target === videoModal) {
-                videoModal.classList.remove("opacity-100");
-                setTimeout(() => videoModal.classList.add("hidden"), 300);
-                youtubeVideo.src = "";
+        // Interactive Agent Prompt Chips Simulation
+        const agentChips = document.querySelectorAll(".agent-chip");
+        const studentQueryEl = document.getElementById("demo-student-query");
+        const mentorResponseEl = document.getElementById("demo-mentor-response");
+        const codePillEl = document.getElementById("demo-code-pill");
+
+        const demoTopics = {
+            rag: {
+                query: '"How do I build an AI Agent with persistent memory using LangChain?"',
+                response: '"We structure it in 3 clean layers: 1) Vector Store retriever for custom knowledge, 2) ConversationBufferMemory to retain context, and 3) Tool-calling agent execution loop."',
+                code: "agent = create_openai_tools_agent(llm, tools, prompt)"
+            },
+            ml: {
+                query: '"Can a complete beginner build and train a Customer Churn prediction model?"',
+                response: '"Yes! We start with clean Pandas exploratory analysis, train Random Forest and XGBoost classifiers in Scikit-Learn, evaluate ROC-AUC curves, and deploy it as a live API."',
+                code: "clf = RandomForestClassifier(n_estimators=100).fit(X_train, y_train)"
+            },
+            scraper: {
+                query: '"How do I build an automated AI scraper to monitor competitor prices?"',
+                response: '"We write an asynchronous BeautifulSoup & Selenium pipeline that extracts tabular data, passes unstructured text to an LLM for structured JSON output, and updates your dashboard."',
+                code: "data = llm.with_structured_output(PricingSchema).invoke(raw_html)"
             }
+        };
+
+        agentChips.forEach(chip => {
+            chip.addEventListener("click", () => {
+                const topic = chip.getAttribute("data-topic");
+                const data = demoTopics[topic];
+                if (!data) return;
+
+                agentChips.forEach(c => c.classList.replace("bg-indigo-600", "bg-slate-800"));
+                chip.classList.replace("bg-slate-800", "bg-indigo-600");
+
+                studentQueryEl.style.opacity = "0";
+                mentorResponseEl.style.opacity = "0";
+                setTimeout(() => {
+                    studentQueryEl.innerText = data.query;
+                    mentorResponseEl.innerText = data.response;
+                    codePillEl.innerText = data.code;
+                    studentQueryEl.style.opacity = "1";
+                    mentorResponseEl.style.opacity = "1";
+                }, 200);
+            });
         });
+
+        // Interactive Code Runner Simulation
+        const runCodeBtn = document.getElementById("run-code-btn");
+        const runCodeStatus = document.getElementById("run-code-status");
+        const runCodeOutput = document.getElementById("run-code-output");
+
+        if (runCodeBtn) {
+            runCodeBtn.addEventListener("click", () => {
+                runCodeStatus.innerText = "⏳ Executing agent pipeline...";
+                runCodeBtn.disabled = true;
+                setTimeout(() => {
+                    runCodeStatus.innerText = "✓ Execution completed";
+                    runCodeOutput.classList.remove("hidden");
+                    runCodeBtn.disabled = false;
+                }, 800);
+            });
+        }
+
+        // Video Modal Interaction
+        const videoTriggers = document.querySelectorAll(".video-card-trigger, #hero-play-video-btn");
+        const videoModal = document.getElementById("video-modal");
+        const closeButtons = document.querySelectorAll(".close-modal-button");
+        const youtubeVideo = document.getElementById("youtube-video");
+        const videoIframeContainer = document.getElementById("video-iframe-container");
+        const videoFallbackContainer = document.getElementById("video-fallback-container");
+
+        // Optional: Replace with your actual YouTube embed URL e.g. "https://www.youtube.com/embed/YOUR_ID?autoplay=1"
+        const CUSTOM_YOUTUBE_URL = ""; 
+
+        videoTriggers.forEach(btn => {
+            btn.addEventListener("click", () => {
+                if (CUSTOM_YOUTUBE_URL) {
+                    youtubeVideo.src = CUSTOM_YOUTUBE_URL;
+                    videoIframeContainer.classList.remove("hidden");
+                    videoFallbackContainer.classList.add("hidden");
+                } else {
+                    youtubeVideo.src = "";
+                    videoIframeContainer.classList.add("hidden");
+                    videoFallbackContainer.classList.remove("hidden");
+                }
+                videoModal.classList.remove("hidden");
+                setTimeout(() => videoModal.classList.add("opacity-100"), 10);
+            });
+        });
+
+        closeButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                videoModal.classList.remove("opacity-100");
+                setTimeout(() => {
+                    videoModal.classList.add("hidden");
+                    if (youtubeVideo) youtubeVideo.src = "";
+                }, 300);
+            });
+        });
+
+        if (videoModal) {
+            videoModal.addEventListener("click", (e) => {
+                if (e.target === videoModal) {
+                    videoModal.classList.remove("opacity-100");
+                    setTimeout(() => {
+                        videoModal.classList.add("hidden");
+                        if (youtubeVideo) youtubeVideo.src = "";
+                    }, 300);
+                }
+            });
+        }
+
+        // High-Converting Lead Booking Form Handler
+        const leadForm = document.getElementById("lead-booking-form");
+        if (leadForm) {
+            leadForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = document.getElementById("lead-name").value.trim();
+                const phone = document.getElementById("lead-phone").value.trim();
+                const goal = document.getElementById("lead-category").value;
+
+                trackConversion("lead_form_submitted", goal);
+
+                const statusEl = document.getElementById("lead-form-status");
+                if (statusEl) statusEl.classList.remove("hidden");
+
+                const waMessage = `Hi Vanshika! My name is ${name} (${phone}). I am interested in ${goal} and would like to book a free 1-on-1 strategy session.`;
+                const waUrl = `https://wa.me/918448168576?text=${encodeURIComponent(waMessage)}`;
+
+                setTimeout(() => {
+                    window.open(waUrl, "_blank", "noopener");
+                }, 700);
+            });
+        }
 
         // Chaos Nodes Scroll Animation
 
